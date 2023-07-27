@@ -18,6 +18,8 @@ public class PjArguments {
 		if( args.length > 0 ) {
 			/* consider only the first argument */
 			is_gui_enabled = isImageAccepted( args[0] );
+			/* set start image */
+			if( is_gui_enabled ) { start_image = args[0]; }
 		}
 		
 	}
@@ -29,10 +31,7 @@ public class PjArguments {
 	public String getDirPath() { return new File(start_image).getParent(); }
 	public String getImagePath() { return start_image; }
 	
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//    - S T A T I C
-	
-	private boolean isImageAccepted( String argument ) {
+	public static boolean isImageAccepted( String argument ) {
 		boolean ret_val = false;
 		
 		/* get file extension */
@@ -47,13 +46,11 @@ public class PjArguments {
 			}
 		}
 		
-		/* set start image */
-		if( ret_val == true ) { start_image = argument; }
-		
 		return ret_val;
 	}
-
-
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//    - S T A T I C
 	
 	private static String getFileExtention( String argument ) {
 		String ret_val = "Extension does not exist!";
@@ -64,7 +61,7 @@ public class PjArguments {
 		return ret_val;
 	}
 	
-	private boolean isFile( String argument ) {
+	private static boolean isFile( String argument ) {
 		boolean ret_val = false;
 		File file = new File( argument );
 		if( file.isFile() && file.exists() ) {
