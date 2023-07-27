@@ -40,7 +40,7 @@ public class PjFrame extends JFrame implements ComponentListener {
 		image_panel = new ImagePanel( 0, 0, getSize(), CommandsPanel.panel_height+menu_hight_offset, dir_path, file_path );
 		add( image_panel );
 		
-		button_panel = new CommandsPanel( 0, 200, getSize(), menu_hight_offset );
+		button_panel = new CommandsPanel( 0, 200, getSize(), menu_hight_offset, image_panel );
 		add( button_panel );
 		
 		menu_bar = new PjMenuBar();
